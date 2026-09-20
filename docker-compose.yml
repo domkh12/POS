@@ -1,0 +1,9 @@
+services:
+  pos_app:
+    build: .
+    container_name: pos_app
+    restart: always
+    ports:
+      - "4000:4000"
+    env_file:
+      - .env

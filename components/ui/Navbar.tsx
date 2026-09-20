@@ -1,14 +1,16 @@
 export default function Navbar() {
   return (
-    <div className="flex justify-between items-center px-7 py-5 shadow-xl">
+    <div className="flex justify-between items-center px-7 py-5">
         <p className="text-2xl font-bold">SwiftPOS</p>
-        <ul className="flex gap-4">
-            <li>Features</li>
-            <li>Pricing</li>
-            <li>Reviews</li>
-            <li>Docs</li>
+        <ul className="flex gap-10">
+            <li>Home</li>
+            <li>Feature</li>
+            <li>Help</li>
         </ul>
-        <button className="bg-primary text-white px-4 py-2 rounded-xl">Start Free</button>
+        <div className="flex gap-3">
+          <button className="border border-primary px-4 py-2 rounded-md">Login</button>
+          <button className="bg-primary text-white px-4 py-2 rounded-md">Sign up</button>
+        </div>
     </div>
   )
 }
