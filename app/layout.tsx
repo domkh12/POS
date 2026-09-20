@@ -2,6 +2,11 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/ui/Navbar";
 import localFont from 'next/font/local';
+import { Geist } from "next/font/google";
+import { cn } from "@/lib/utils";
+import { ThemeProvider } from "@/components/theme-provider";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 const kantumruyPro = localFont({
   src: [
@@ -36,12 +41,20 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={kantumruyPro.className}
+      suppressHydrationWarning
+      className={cn(kantumruyPro.className, "font-sans", geist.variable)}
     >
-      <body className="min-h-full flex flex-col">
-        <Navbar />
-        {children}
-      </body>
+      <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+        <body className="min-h-full flex flex-col px-20">
+          <Navbar />
+          {children}
+        </body>
+      </ThemeProvider>
     </html>
   );
 }
